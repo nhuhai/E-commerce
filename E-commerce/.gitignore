@@ -1,2 +1,4 @@
 node_modules/
 dist/
+shop-online-frontend/.env.local
+shop-online-backend/.env
