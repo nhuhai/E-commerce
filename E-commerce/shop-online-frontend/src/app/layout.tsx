@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { UserProvider } from "./context/UserContext"; // 👈 Add this
 import { CartProvider } from "./context/CartContext"; // adjust path if needed
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -15,8 +14,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning={true}>
-          <ToastContainer position="top-right" autoClose={3000} />
-          {children} 
+        <UserProvider>
+          <CartProvider>
+            <Navbar />
+            <ToastContainer position="top-right" autoClose={3000} />
+            {children}
+            <Footer />
+          </CartProvider>
+        </UserProvider>
       </body>
     </html>
   );
